@@ -11,7 +11,6 @@ const Router = ReactRouter.Router;
 const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
-// const IndexRedirect = ReactRouter.IndexRedirect;
 
 /* Components */
 // General

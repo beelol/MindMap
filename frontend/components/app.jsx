@@ -64,9 +64,9 @@ const App = React.createClass({
   getNavBar () {
     let navBar = SessionStore.isUserLoggedIn() ? <NavBar /> : <div />;
 
-    if (this.shouldShowWelcome()) {
-      navBar = <WelcomeNavBar />;
-    }
+    // if (this.shouldShowWelcome()) {
+    //   navBar = <WelcomeNavBar />;
+    // }
 
     return navBar;
   },
