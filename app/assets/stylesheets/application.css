@@ -13,3 +13,83 @@
  *= require_tree .
  *= require_self
  */
+
+/* RESETS AND PAGE CONFIGURATION */
+
+ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   outline: 0;
+   font-size: 100%;
+   vertical-align: baseline;
+   background: transparent;
+   font-family: 'Josefin Sans', sans-serif;
+   text-decoration: none;
+}
+
+html, body, main {
+ height: 100%;
+ overflow: auto;
+}
+
+body {
+ position: relative;
+ height: 100%;
+ background-color: #EFF0F1;
+}
+
+li {
+ list-style: none;
+}
+
+h1 {
+ font-size: 30px;
+ text-align: center;
+}
+
+.data-reactroot {
+  position: relative;
+  height: 100%;
+}
+
+.welcome {
+  color: #fff;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at center,rgba(255,185,0,.5) 0,rgba(252,99,107,.4) 40%,rgba(255,109,146,0) 70%);
+  background-color: #ff6d92;
+  height: 100vh;
+
+  /* Display Features */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* NAVBAR PROPERTIES */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #e1e2e4;
+  color: #898e95;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: block;
+  font-size: 14px;
+  height: 40px;
+}
+
+.navbar-left {
+  display: block;
+  float: left;
+  margin-left: 30px;
+  height: inherit;
+}
+
+.navbar-right {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  margin-right: 30px;
+}

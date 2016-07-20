@@ -1,12 +1,18 @@
 const React = require('react');
 
-const NavBar = React.createClass({
-  render () {
-    return <div className="background">
+const NavBarLeft = require('./navbar_left.jsx');
+const NavBarRight = require('./navbar_right.jsx');
 
-    </div>;
+const NavBar = React.createClass({
+
+  render () {
+    return(
+      <div className='navbar'>
+        <NavBarLeft />
+        <NavBarRight />
+      </div>
+    );
   }
 });
-
 
 module.exports = NavBar;

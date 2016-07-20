@@ -25,12 +25,6 @@ const App = React.createClass({
     this.forceUpdateListener.remove();
   },
 
-  componentWillReceiveProps (newProps) {
-    if (newProps.location.pathname === '/' && SessionStore.currentUser()) {
-      this.redirectToFirstProject();
-    }
-  },
-
   greeting() {
     if (SessionStore.isUserLoggedIn()) {
 
@@ -62,7 +56,7 @@ const App = React.createClass({
   },
 
   getNavBar () {
-    let navBar = SessionStore.isUserLoggedIn() ? <NavBar /> : <div />;
+    let navBar = SessionStore.isUserLoggedIn() ? "": <NavBar />;
 
     // if (this.shouldShowWelcome()) {
     //   navBar = <WelcomeNavBar />;
