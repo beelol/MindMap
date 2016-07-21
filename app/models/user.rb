@@ -6,25 +6,10 @@ class User < ActiveRecord::Base
 	validates :username, uniqueness: true
 	validates :password, length: {minimum: 6}, allow_nil: :true
 
-	after_initialize :ensure_session_token, :initialize_about
+	after_initialize :ensure_session_token
 
-	# This line will fuck up when updating a user; get rid of it
-	before_validation :ensure_session_token_uniqueness
-
-  has_many :teams,
-  primary_key: :id,
-  foreign_key: :author_id,
-  class_name: "Team"
-
-  has_many :tasks,
-  primary_key: :id,
-  foreign_key: :author_id,
-  class_name: "Task"
-
-  has_many :projects,
-  through: :teams,
-  source: :projects
-  after_initialize :ensure_session_token
+	# This line will mess up when updating a user; get rid of it
+	before_validation :ensure_session_token_uniqueness, :set_temporary_values
 
 	def password= password
 		self.password_digest = BCrypt::Password.create(password)
@@ -64,7 +49,8 @@ class User < ActiveRecord::Base
 		end
 	end
 
-	def initialize_about
-		self.about = ""
+	def set_temporary_values
+		self.email = "email@example.com"
+		self.picture_url = "lolololololololol.com/lol.png"
 	end
 end

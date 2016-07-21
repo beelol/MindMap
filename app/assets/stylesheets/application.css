@@ -69,6 +69,11 @@ h1 {
 }
 
 /* NAVBAR PROPERTIES */
+.navigation-link:hover {
+  cursor: pointer;
+  color: #02ceff;
+}
+
 .navbar {
   background: #fff;
   border-bottom: 1px solid #e1e2e4;
