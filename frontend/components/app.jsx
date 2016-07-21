@@ -25,6 +25,12 @@ const App = React.createClass({
     this.forceUpdateListener.remove();
   },
 
+  componentWillReceiveProps (newProps) {
+    if (newProps.location.pathname === '/' && SessionStore.currentUser()) {
+      this.redirectToFirstProject();
+    }
+  },
+
   greeting() {
     if (SessionStore.isUserLoggedIn()) {
 

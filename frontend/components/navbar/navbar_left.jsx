@@ -16,7 +16,7 @@ const NavBarLeft = React.createClass({
   }
 })
 
-//         <Link to="/projects" className="navigation-link-left">Projects</Link>
+//         <Link to="/projects" className="navigation-link">Projects</Link>
 // <Link to="/teams" className="navigation-link-left">Teams</Link>
 
 module.exports = NavBarLeft;

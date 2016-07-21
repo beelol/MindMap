@@ -18,9 +18,9 @@ const NavBarRight = React.createClass({
     let signup = <div></div>;
 
     if (!SessionStore.isUserLoggedIn()) {
-      signin = <div className="navigation-link-right" onClick={ this.handleSignIn }>Sign In</div>
+      signin = <div className="navigation-link" onClick={ this.handleSignIn }>Sign In</div>
 
-      signup = <div className="navigation-link-right" onClick={ this.handleSignUp }>Sign Up</div>
+      signup = <div className="navigation-link" onClick={ this.handleSignUp }>Sign Up</div>
     }
 
     return (
