@@ -16,4 +16,9 @@ class Listing < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :author_id,
     class_name: :User
+
+  has_many :boards,
+  primary_key: :id,
+  foreign_key: :listing_id,
+  class_name: :Board
 end
