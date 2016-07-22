@@ -11,10 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629161423) do
+ActiveRecord::Schema.define(version: 20160722195627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boards", force: :cascade do |t|
+    t.string   "name",            null: false
+    t.string   "description"
+    t.integer  "listing_id",      null: false
+    t.integer  "author_id",       null: false
+    t.integer  "master_board_id"
+    t.integer  "ord",             null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "author_id",   null: false
+    t.integer  "ord"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "photo_boxes", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "description"
+    t.string   "photo_url",   null: false
+    t.integer  "ord",         null: false
+    t.integer  "author_id",   null: false
+    t.integer  "board_id",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "text_boxes", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "text",       null: false
+    t.integer  "ord",        null: false
+    t.integer  "author_id",  null: false
+    t.integer  "board_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
