@@ -87,6 +87,7 @@ const LoginForm = React.createClass({
   handleSignIn() {
     if (SessionStore.isUserLoggedIn()) {
       this.context.router.push("/");
+			console.log("signed in");
     }
   },
 
