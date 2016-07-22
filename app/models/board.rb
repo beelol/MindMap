@@ -19,6 +19,16 @@ class Board < ActiveRecord::Base
     foreign_key: :listing_id,
     class_name: :Listing
 
+  has_many :text_boxes,
+		primary_key: :id,
+		foreign_key: :board_id,
+		class_name: :TextBox
+
+	has_many :photo_boxes,
+		primary_key: :id,
+		foreign_key: :board_id,
+		class_name: :PhotoBox
+
   belongs_to :author,
     primary_key: :id,
     foreign_key: :author_id,
