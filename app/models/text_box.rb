@@ -13,4 +13,13 @@
 #
 
 class TextBox < ActiveRecord::Base
+  belongs_to :author,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :User
+
+  belongs_to :board,
+    primary_key: :id,
+    foreign_key: :board_id,
+    class_name: :Board
 end
