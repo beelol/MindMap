@@ -25,6 +25,26 @@ class User < ActiveRecord::Base
 	# This line will mess up when updating a user; get rid of it
 	before_validation :ensure_session_token_uniqueness, :set_temporary_values
 
+	has_many :text_boxes,
+		primary_key: :id,
+		foreign_key: :author_id,
+		class_name: :TextBox
+
+	has_many :photo_boxes,
+		primary_key: :id,
+		foreign_key: :author_id,
+		class_name: :PhotoBox
+
+	has_many :boards,
+		primary_key: :id,
+		foreign_key: :author_id,
+		class_name: :Board
+
+	has_many :listings,
+		primary_key: :id,
+		foreign_key: :author_id,
+		class_name: :Listing
+
 	def password= password
 		self.password_digest = BCrypt::Password.create(password)
 		@password = password
