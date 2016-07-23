@@ -6,6 +6,7 @@ const ListingIndexItem = React.createClass({
     return(
       <div className="listing-item-container">
         <div className="listing-item">
+          <div className="listing-item-header">Listing Item Header</div>
           <SublistingIndex />
         </div>
       </div>
