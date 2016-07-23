@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: boards
+#
+#  id              :integer          not null, primary key
+#  name            :string           not null
+#  description     :string
+#  listing_id      :integer          not null
+#  author_id       :integer          not null
+#  master_board_id :integer
+#  ord             :integer          not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  listing_id: 1
+  author_id: 1
+
+two:
+  name: MyString
+  description: MyString
+  listing_id: 1
+  author_id: 1

@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string           not null
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  picture_url     :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ActiveRecord::Base
 
 	attr_reader :password
@@ -10,6 +24,26 @@ class User < ActiveRecord::Base
 
 	# This line will mess up when updating a user; get rid of it
 	before_validation :ensure_session_token_uniqueness, :set_temporary_values
+
+	has_many :text_boxes,
+		primary_key: :id,
+		foreign_key: :author_id,
+		class_name: :TextBox
+
+	has_many :photo_boxes,
+		primary_key: :id,
+		foreign_key: :author_id,
+		class_name: :PhotoBox
+
+	has_many :boards,
+		primary_key: :id,
+		foreign_key: :author_id,
+		class_name: :Board
+
+	has_many :listings,
+		primary_key: :id,
+		foreign_key: :author_id,
+		class_name: :Listing
 
 	def password= password
 		self.password_digest = BCrypt::Password.create(password)
