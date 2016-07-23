@@ -1,4 +1,4 @@
-"use strict";
+
 
 const AppDispatcher = require('../dispatcher/dispatcher');
 const SessionConstants = require('../constants/session_constants');

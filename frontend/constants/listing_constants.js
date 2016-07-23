@@ -1,4 +1,4 @@
-"use strict";
+
 
 const ListingConstants = {
   LISTINGS_RECEIVED: "LISTINGS_RECEIVED",

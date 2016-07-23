@@ -1,5 +1,3 @@
-"use strict";
-
 const AppDispatcher = require('../dispatcher/dispatcher');
 const ListingConstants = require('../constants/listing_constants');
 const ListingApiUtil = require('../util/listing_api_util');

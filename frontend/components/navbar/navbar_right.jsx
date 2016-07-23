@@ -16,7 +16,7 @@ const NavBarRight = React.createClass({
   render () {
     let signIn = "";
     let signUp = "";
-    
+
     signIn = <div className="navigation-link" onClick={ this.handleSignIn }>Sign In</div>
 
     signUp = <div className="navigation-link" onClick={ this.handleSignUp }>Sign Up</div>

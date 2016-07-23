@@ -1,4 +1,4 @@
-"use strict";
+
 
 //React
 const React = require('react');
@@ -14,8 +14,9 @@ const hashHistory = ReactRouter.hashHistory;
 
 /* Components */
 // General
-const App = require('./components/app.jsx');
-const LoginForm = require('./components/login_form.jsx');
+const App = require('./components/app');
+const LoginForm = require('./components/login_form');
+const ListingIndex = require('./components/listing/listing_index');
 
 //Auth
 const SessionStore = require('./stores/session_store');
@@ -26,6 +27,7 @@ const appRouter = (
     <Route path="/" component={ App }>
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
+      <Route path="/listings" component={ ListingIndex } />
     </Route>
   </Router>
 );

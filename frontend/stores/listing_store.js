@@ -1,5 +1,3 @@
-"use strict";
-
 const Store = require('flux/utils').Store;
 const ListingConstants = require('../constants/listing_constants');
 const AppDispatcher = require('../dispatcher/dispatcher');
