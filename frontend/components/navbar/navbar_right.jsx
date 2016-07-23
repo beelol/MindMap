@@ -14,19 +14,19 @@ const NavBarRight = React.createClass({
     hashHistory.push("/signup");
   },
   render () {
-    let signin = <div></div>;
-    let signup = <div></div>;
+    let signIn = "";
+    let signUp = "";
 
-    if (!SessionStore.isUserLoggedIn()) {
-      signin = <div className="navigation-link" onClick={ this.handleSignIn }>Sign In</div>
+    if (this.props.showLandingPage) {
+      signIn = <div className="navigation-link" onClick={ this.handleSignIn }>Sign In</div>
 
-      signup = <div className="navigation-link" onClick={ this.handleSignUp }>Sign Up</div>
+      signUp = <div className="navigation-link" onClick={ this.handleSignUp }>Sign Up</div>
     }
 
     return (
       <div className='navbar-right'>
-        {signin}
-        {signup}
+        {signIn}
+        {signUp}
       </div>
     );
   }

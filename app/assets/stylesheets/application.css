@@ -69,6 +69,12 @@ h1 {
 }
 
 /* NAVBAR PROPERTIES */
+.hamburger-navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .navigation-link:hover {
   cursor: pointer;
   color: #02ceff;
@@ -125,6 +131,22 @@ h1 {
   font-size: 30px;
   color: black;
 }
+/* HAMBURGAH */
+.hamburger-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+
+  width: auto;
+}
+
+.hamburger {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
 
 /* LOGIN FORM PROPERTIES */
 .login-form-container {
@@ -422,4 +444,85 @@ h1 {
   -ms-flex-pack: center;
   min-width: 60px;
   text-align: center;
+}
+
+/* HAMBURGER DROPDOWN STYLES */
+.dropdown .list {
+  display: none;
+  color: #898e95;
+}
+
+.hamburger-container {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.hamburger-container:hover {
+  cursor: pointer;
+}
+
+.hamburger-container:hover + .dropdown .list {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #a1a4aa;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.hamburger-container:hover + .dropdown .list li {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  width: 150px;
+  height: 50px;
+}
+
+/* DROPDOWN HOVER EVENTS */
+
+.dropdown:hover {
+  cursor: pointer;
+}
+
+.dropdown:hover .list {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #a1a4aa;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.dropdown:hover .list li {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  width: 150px;
+  height: 50px;
+}
+
+/* DROPDOWN LIST ITEM STYLES */
+.list li:hover {
+  color: #fff;
+  background: linear-gradient(45deg, #fc636b, #ff6d92 60%, #ffb900 115%);
+  cursor: pointer;
 }

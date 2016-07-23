@@ -4,6 +4,7 @@ const React = require('react');
 
 // Page Navigation
 const NavBar = require('../components/navbar/navbar');
+const Hamburger = require('../components/navbar/hamburger');
 
 // Sessions / Login
 const SessionStore = require('../stores/session_store');
@@ -24,12 +25,6 @@ const App = React.createClass({
   componentWillUnmount() {
     this.forceUpdateListener.remove();
   },
-
-  // componentWillReceiveProps (newProps) {
-  //   if (newProps.location.pathname === '/' && SessionStore.currentUser()) {
-  //     this.redirectToFirstProject();
-  //   }
-  // },
 
   greeting() {
     if (SessionStore.isUserLoggedIn()) {
@@ -61,20 +56,16 @@ const App = React.createClass({
     return this.shouldShowWelcome() ? <WelcomeScreen /> : <div></div>;
   },
 
-  getNavBar () {
-    let navBar = SessionStore.isUserLoggedIn() ? "": <NavBar />;
+  getNavigation () {
+    let nav = SessionStore.isUserLoggedIn() ? <Hamburger /> : <NavBar />;
 
-    // if (this.shouldShowWelcome()) {
-    //   navBar = <WelcomeNavBar />;
-    // }
-
-    return navBar;
+    return nav;
   },
 
   render() {
     return (
       <div>
-        {this.getNavBar()}
+        {this.getNavigation()}
         {this.getWelcomeDiv()}
         {this.props.children}
       </div>
