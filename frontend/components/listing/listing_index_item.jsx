@@ -8,6 +8,7 @@ const ListingIndexItem = React.createClass({
         <div className="listing-item">
           <div className="listing-item-header">Listing Item Header</div>
           <SublistingIndex />
+          <a className="listing-item-footer" href="#/boards/new">Add a board...</a>
         </div>
       </div>
     );

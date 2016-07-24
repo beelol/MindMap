@@ -2,9 +2,12 @@
 
 const React = require('react');
 
-// Page Navigation
+// Page Navigation Components
 const NavBar = require('../components/navbar/navbar');
-const Hamburger = require('../components/navbar/hamburger');
+const Hamburger = require('./navbar/hamburger');
+
+// Board Components
+const BoardForm = require('./board/board_form')
 
 // Sessions / Login
 const SessionStore = require('../stores/session_store');

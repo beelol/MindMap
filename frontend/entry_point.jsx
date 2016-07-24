@@ -18,6 +18,10 @@ const App = require('./components/app');
 const LoginForm = require('./components/login_form');
 const ListingIndex = require('./components/listing/listing_index');
 
+/* Board Components */
+const BoardForm = require('./components/board/board_form');
+const BoardDetail = require('./components/board/board_detail');
+
 //Auth
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
@@ -27,7 +31,12 @@ const appRouter = (
     <Route path="/" component={ App }>
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
-      <Route path="/listings" component={ ListingIndex } />
+      <Route path="/listings" component={ ListingIndex } >
+        <Route path=":listing_id/boards/new" component={ BoardForm } />
+        <Route path=":listing_id/boards/:board_id" component={ BoardDetail } />
+      </Route>
+
+      <Route path="boards/new" component={ BoardForm } />
     </Route>
   </Router>
 );
