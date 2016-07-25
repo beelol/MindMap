@@ -134,7 +134,19 @@ const BoardDetail = React.createClass({
                         value={this.state.board.title}
                         onChange={this.update("title")}/>
 
+              <div className="board-detail-separator"></div>
+            </div>
 
+
+            <div className="board-detail-list-container">
+              <ul className="board-detail-list">
+                <li className="board-detail-list-item"></li>
+                <li className="board-detail-list-item"></li>
+                <li className="board-detail-list-item"></li>
+                <li className="board-detail-list-item"></li>
+                <li className="board-detail-list-item"></li>
+                <li className="board-detail-list-item"></li>
+              </ul>
             </div>
         </div>
       </Modal>

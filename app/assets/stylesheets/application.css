@@ -736,7 +736,7 @@ textarea {
   font-weight: 700;
   height: 22px;
   line-height: 22px;
-  margin: -4px -6px;
+  /*margin: -4px -6px;*/
   min-height: 22px;
   padding: 4px 6px;
   -webkit-transition: background 85ms ease-in,border-color 85ms ease-in;
@@ -744,10 +744,56 @@ textarea {
   width: 100%;
   resize: none;
 }
-
+/* BOARD DETAIL STYLES */
 .board-detail-header {
   margin: 4px 40px 4px 38px;
   padding: 9pt 9pt 0;
   position: relative;
   z-index: 1;
+}
+
+.board-detail-separator {
+  right: 0;
+  border-top: 1px solid rgba(185, 185, 185, 0.79);
+  content: "";
+  height: 1px;
+  width: 200%;
+  z-index: 0;
+}
+
+.board-detail-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.board-detail-list-container {
+  margin-top: 40px;
+}
+
+.board-detail-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: auto;
+  min-height: 300px;
+  max-height: 400px;
+}
+
+.board-detail-list-item {
+  background-color: rgb(222, 222, 222);
+  border-radius: 5px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  min-width: 200px;
+  min-height: 175px;
+  transition: background-color .3s;
+}
+
+.board-detail-list-item:hover {
+  cursor: pointer;
+  background-color: rgb(0, 121, 191);
+  transition: background-color .3s;
 }
