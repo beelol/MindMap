@@ -1,0 +1,7 @@
+const PhotoBoxConstants = {
+  PHOTOBOXES_RECEIVED: "PHOTOBOXES_RECEIVED",
+  PHOTOBOX_RECEIVED: "PHOTOBOX_RECEIVED",
+  PHOTOBOX_REMOVED: "PHOTOBOX_REMOVED"
+};
+
+module.exports = PhotoBoxConstants;
