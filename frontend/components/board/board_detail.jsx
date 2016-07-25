@@ -140,10 +140,10 @@ const BoardDetail = React.createClass({
 
             <div className="board-detail-list-container">
               <ul className="board-detail-list">
-                <li className="board-detail-list-item"></li>
-                <li className="board-detail-list-item"></li>
-                <li className="board-detail-list-item"></li>
-                <li className="board-detail-list-item"></li>
+                <li className="board-detail-list-item">Canvas</li>
+                <li className="board-detail-list-item">SubBoard</li>
+                <li className="board-detail-list-item">Checklist</li>
+                <li className="board-detail-list-item">something else</li>
                 <li className="board-detail-list-item"></li>
                 <li className="board-detail-list-item"></li>
               </ul>
