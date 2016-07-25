@@ -9,12 +9,12 @@ const BoardDetail = React.createClass({
 
   getInitialState() {
     return {
-      // board: {
-      //   id: undefined,
-      //   title: "",
-      //   description: ""
-      //   // tasks: TaskStore.findByBoard(this.props.params.id)
-      // }
+      board: {
+        id: undefined,
+        title: "title",
+        description: ""
+        // tasks: TaskStore.findByBoard(this.props.params.id)
+      }
     };
   },
 
@@ -30,14 +30,14 @@ const BoardDetail = React.createClass({
   //   this.onChangeListener.remove();
   // },
 
-  // update(property) {
-  //   return (e) => {
-  //     let board = this.state.board;
-  //     board[[property]] = e.target.value;
-  //
-  //     this.setState({board: board});
-  //   }
-  // },
+  update(property) {
+    return (e) => {
+      let board = this.state.board;
+      board[[property]] = e.target.value;
+
+      this.setState({board: board});
+    }
+  },
 
   // setDescription (e) {
   //   let newBoard = this.state.board;
@@ -131,8 +131,10 @@ const BoardDetail = React.createClass({
         <div className={className}>
             <div className="board-detail-header">
               <textarea className="board-detail-title"
-                        value="lolololololol"
-                        onChange={this.lol}/>
+                        value={this.state.board.title}
+                        onChange={this.update("title")}/>
+
+
             </div>
         </div>
       </Modal>
