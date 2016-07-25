@@ -15,7 +15,7 @@ const BoardForm = React.createClass({
       {
         title: "",
         description: "",
-        listing_id: 0
+        listing_id: 1
       }
     };
   },
@@ -60,7 +60,7 @@ const BoardForm = React.createClass({
 
   handleCancel(event) {
     event.preventDefault();
-    hashHistory.push("/");
+    hashHistory.goBack();
   },
 
   update(property) {

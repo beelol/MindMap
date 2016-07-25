@@ -57,6 +57,9 @@ h1 {
  text-align: center;
 }
 
+textarea {
+  outline: 0;
+}
 .data-reactroot {
   position: relative;
   height: 100%;
@@ -622,9 +625,28 @@ h1 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  padding: 8px 10px;
   position: relative;
   min-height: 18px;
+
+  background: 0 0;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  font-weight: 700;
+  height: 18px;
+  min-height: 18px;
+  padding: 17px 5px;
+  resize: none;
+
+  color: #4d4d4d;
+  font: 14px "Helvetica Neue",Arial,Helvetica,sans-serif;
+  line-height: 18px;
+
+  margin-left: 5px;
+}
+
+.listing-item-header:hover {
+  cursor: pointer;
 }
 
 .listing-item-footer {
@@ -671,6 +693,11 @@ h1 {
   min-height: 20px;
   position: relative;
   z-index: 0;
+}
+
+.sublisting-item-container:hover {
+  background-color: #edeff0;
+  border-bottom-color: #d6dadc;
 }
 
 .sublisting-item {

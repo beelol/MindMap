@@ -35,8 +35,6 @@ const appRouter = (
         <Route path=":listing_id/boards/new" component={ BoardForm } />
         <Route path=":listing_id/boards/:board_id" component={ BoardDetail } />
       </Route>
-
-      <Route path="boards/new" component={ BoardForm } />
     </Route>
   </Router>
 );
