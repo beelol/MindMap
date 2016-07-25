@@ -4,32 +4,32 @@ class Api::PhotoBoxesController < ApplicationController
   end
 
   def create
-    @photo_boxes = PhotoBox.create!(photo_boxes_params)
+    @photo_box = PhotoBox.create!(photo_box_params)
 
     render :show
   end
 
   def show
-    @photo_boxes = PhotoBox.find(params[:id])
+    @photo_box = PhotoBox.find(params[:id])
   end
 
   def update
-    @photo_boxes = PhotoBox.find(params[:id])
+    @photo_box = PhotoBox.find(params[:id])
 
-    @photo_boxes.update!(photo_boxes_params)
+    @photo_box.update!(photo_box_params)
 
     render :show
   end
 
   def destroy
-    @photo_boxes = PhotoBox.find(params[:id])
+    @photo_box = PhotoBox.find(params[:id])
 
-    @photo_boxes.destroy
+    @photo_box.destroy
 
     render :index
   end
 
-  def photo_boxes_params
-    params.require(:photo_boxes).permit(:name, :description, :photo_url, :author_id, :ord, :board_id)
+  def photo_box_params
+    params.require(:photo_box).permit(:name, :description, :photo_url, :author_id, :ord, :board_id)
   end
 end
