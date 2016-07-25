@@ -5,7 +5,7 @@ const SublistingIndex = React.createClass({
   render () {
     return(
       <div className="sublisting-index">
-        <SublistingIndexItem />
+        <SublistingIndexItem listing_id={1}/>
         <SublistingIndexItem />
         <SublistingIndexItem />
         <SublistingIndexItem />
