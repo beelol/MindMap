@@ -1,5 +1,3 @@
-
-
 //React
 const React = require('react');
 const ReactDOM = require('react-dom');
@@ -11,6 +9,9 @@ const Router = ReactRouter.Router;
 const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
+
+const IndexRedirect = ReactRouter.IndexRedirect;
+
 
 /* Components */
 // General
@@ -29,6 +30,8 @@ const SessionActions = require('./actions/session_actions');
 const appRouter = (
   <Router history={ hashHistory }>
     <Route path="/" component={ App }>
+      <IndexRedirect to="/listings" />
+
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
       <Route path="/listings" component={ ListingIndex } >
