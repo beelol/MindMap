@@ -582,10 +582,10 @@ textarea {
   overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 10px;
-  position: relative;
+  position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: -90vh;
   left: 0;
 }
 
