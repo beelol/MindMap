@@ -22,20 +22,46 @@ const ListingIndex = React.createClass({
   },
 
   onListingsChanged() {
-    console.log(ListingStore.all());
-
     this.setState({
       listings: ListingStore.all()
     });
   },
 
+  onNameWasEdited (newListing) {
+    this.setState({[newListing.id]: newListing});
+  },
+
+  onNameWasUpdated (newListing) {
+    this.setState({[newListing.id]: newListing});
+
+    ListingActions.editListing(newListing);
+  },
+
+  // This grabs the updated one from our state
+  getCurrentListingName (listing) {
+    return (this.state[listing.id] !== undefined ? this.state[listing.id].name : listing.name)
+  },
+
   render () {
+    let listingKeys = Object.keys(this.state.listings);
+
     return(
       <div className="app-container">
         <div className="listing-index-container">
           <div className="listing-index">
-            <ListingIndexItem />
-            <ListingIndexItem />
+            {
+              listingKeys.map(key => {
+                let listing = this.state.listings[key];
+                listing.name = this.getCurrentListingName(listing);
+
+                return (
+                  <ListingIndexItem key={listing.id}
+                                    listing={listing}
+                                    editName={this.onNameWasEdited}
+                                    updateName={this.onNameWasUpdated}/>
+                );
+              })
+            }
           </div>
         </div>
         {this.props.children}

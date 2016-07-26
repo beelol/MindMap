@@ -2,28 +2,32 @@ const React = require('react');
 const SublistingIndex = require('./sublisting_index');
 
 const ListingIndexItem = React.createClass({
-  getInitialState () {
-    return {
-      listing: {
-        title: "Listing Item"
-      }
-    }
+  handleKeyPress (e) {
+    if (e.keyCode === 13) this.handleExit(e);
   },
 
-  updateTitle (e) {
-    this.setState({
-      listing: {
-        title: e.currentTarget.value
-      }
-    });
+  handleChange(e) {
+    let newListing = this.props.listing;
+    newListing.name = e.currentTarget.value;
+
+    this.props.editName(newListing);
+  },
+
+  handleExit(e) {
+    let newListing = this.props.listing;
+    newListing.name = e.currentTarget.value;
+
+    this.props.updateName(newListing);
   },
 
   render () {
     return(
       <div className="listing-item-container">
         <div className="listing-item">
-          <textarea value={this.state.listing.title}
-                    onChange={this.updateTitle}
+          <textarea value={this.props.listing.name}
+                    onChange={this.handleChange}
+                    onBlur={this.handleExit}
+                    onKeyDown={this.handleKeyPress}
                     className="listing-item-header">
           </textarea>
           <SublistingIndex />
