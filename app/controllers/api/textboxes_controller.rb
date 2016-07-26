@@ -1,6 +1,6 @@
 class Api::TextboxesController < ApplicationController
   def index
-    @textboxes = Textbox.all
+    @textboxes = current_user.textboxes
   end
 
   def create
