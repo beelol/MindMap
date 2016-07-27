@@ -1,9 +1,12 @@
 "use strict";
 
+// React
 const React = require('react');
 const Modal = require('react-modal');
-// const BoardActions = require('../../actions/board_actions');
-// const BoardStore = require('../../stores/board_store');
+
+// Board Flux
+const BoardActions = require('../../actions/board_actions');
+const BoardStore = require('../../stores/board_store');
 
 const BoardDetail = React.createClass({
 
@@ -13,22 +16,17 @@ const BoardDetail = React.createClass({
         id: undefined,
         title: "title",
         description: ""
-        // tasks: TaskStore.findByBoard(this.props.params.id)
       }
     };
   },
 
-  // componentDidMount () {
-  //   this.onChangeListener = BoardStore.addListener(this.onBoardChanged);
-  //
-  //   // Find the board from the params
-  //   this.boardId = this.props.params.id;
-  //   this.board = BoardStore.find(this.boardId);
-  // },
-  //
-  // componentWillUnmount () {
-  //   this.onChangeListener.remove();
-  // },
+  componentDidMount () {
+    this.onChangeListener = BoardStore.addListener(this.onBoardChanged);
+  },
+
+  componentWillUnmount () {
+    this.onChangeListener.remove();
+  },
 
   update(property) {
     return (e) => {
@@ -72,11 +70,11 @@ const BoardDetail = React.createClass({
   //   });
   // },
   //
-  // onBoardChanged () {
-  //   this.setState({
-  //     board: BoardStore.find(this.state.board.id)
-  //   });
-  // },
+  onBoardChanged () {
+    this.setState({
+      board: BoardStore.find(this.props.params.board_id)
+    });
+  },
 
   getModalStyles () {
     return {
