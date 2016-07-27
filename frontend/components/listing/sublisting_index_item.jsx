@@ -4,14 +4,15 @@ const Modal = require('react-modal');
 
 const SublistingIndexItem = React.createClass({
   openBoard () {
-    hashHistory.push(`listings/${this.props.listing_id}/boards/1`);
+    hashHistory.push(`listings/${this.props.listing.id}/boards/1`);
   },
+
   render () {
     return(
       <div className="sublisting-item-container"
            onClick={this.openBoard}>
         <div className="sublisting-item">
-          This is a sublisting.
+          {this.props.sublisting.name}
         </div>
       </div>
     );

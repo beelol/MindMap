@@ -30,8 +30,8 @@ const ListingIndexItem = React.createClass({
                     onKeyDown={this.handleKeyPress}
                     className="listing-item-header">
           </textarea>
-          <SublistingIndex />
-          <a className="listing-item-footer" href="#/listings/1/boards/new">Add a board...</a>
+          <SublistingIndex listing={this.props.listing}/>
+          <a className="listing-item-footer" href={`#/listings/${this.props.listing.id}/boards/new`}>Add a board...</a>
         </div>
       </div>
     );

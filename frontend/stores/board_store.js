@@ -16,13 +16,13 @@ BoardStore.find = function (id) {
   return Object.assign({}, _boards[id]);
 };
 
-BoardStore.findByTeam = function (team_id) {
+BoardStore.findByListing = function (listing_id) {
   let boards = [];
 
   Object.keys(_boards).forEach((key) => {
     let newKey = parseInt(key);
 
-    if (_boards[newKey].team_id === team_id) {
+    if (_boards[newKey].listing_id === listing_id) {
       boards.push(_boards[key]);
     }
   });
