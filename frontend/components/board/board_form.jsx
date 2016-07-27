@@ -1,10 +1,12 @@
 "use strict";
 
 const React = require('react');
-// const BoardActions = require('../../actions/board_actions');
-// const BoardStore = require('../../stores/board_store');
-const hashHistory = require('react-router').hashHistory;
 const Modal = require('react-modal');
+
+const hashHistory = require('react-router').hashHistory;
+
+const BoardActions = require('../../actions/board_actions');
+const BoardStore = require('../../stores/board_store');
 
 const SessionStore = require('../../stores/session_store');
 
@@ -13,35 +15,30 @@ const BoardForm = React.createClass({
     return {
       board:
       {
-        title: "",
+        name: "",
         description: "",
-        listing_id: 1
+        ord: 0
       }
     };
   },
-  // componentDidMount () {
-  //   this.listener = BoardStore.addListener(this.onChange);
-  // },
-  //
-  // componentWillUnmount () {
-  //   this.listener.remove();
-  // },
+
+  componentDidMount () {
+    this.listener = BoardStore.addListener(this.onChange);
+  },
+
+  componentWillUnmount () {
+    this.listener.remove();
+  },
 
   onChange () {
     // Get the board from the store
     let all = BoardStore.all();
     let keys = Object.keys(all)
 
-    this.setState({
-      boardId: all[keys.length].id
-    })
+    let board = all[keys[keys.length-1]];
 
-    let board = all[keys.length];
-
-    BoardStore.currentBoard = board;
-
-    // // Display the board
-    // this.showBoard(board.id);
+    // Display the board
+    this.showBoard(board.id);
   },
 
   handleSubmit(event) {
@@ -49,14 +46,15 @@ const BoardForm = React.createClass({
 
     const board = Object.assign({}, this.state.board);
 
-    // if (TeamStore.currentTeam) board.team_id = TeamStore.currentTeam.id
+    board.listing_id = this.props.params.listing_id
+    board.author_id = SessionStore.currentUser().id
 
     BoardActions.createBoard(board);
   },
 
-  // showBoard(id) {
-  //   hashHistory.push("/boards/" + id);
-  // },
+  showBoard(id) {
+    hashHistory.push(`/#/listings/${this.props.params.listing_id}/boards/${id}`);
+  },
 
   handleCancel(event) {
     event.preventDefault();
@@ -99,7 +97,7 @@ const BoardForm = React.createClass({
               <div className='board-form-div'>
                 <label className="board-title">Title</label>
                 <input type="text" value={this.state.board.title}
-                  onChange={this.update("title")} className="board-field-title"/>
+                  onChange={this.update("name")} className="board-field-title"/>
               </div>
 
               <div className='board-form-div'>

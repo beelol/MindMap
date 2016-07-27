@@ -6,8 +6,6 @@ const BoardStore = new Store(AppDispatcher);
 
 let _boards = {};
 
-BoardStore.currentBoard = undefined;
-
 BoardStore.all = function () {
   return Object.assign({}, _boards);
 };
