@@ -3,6 +3,8 @@
 // React
 const React = require('react');
 const Modal = require('react-modal');
+const ReactDOM = require('react-dom');
+
 
 // Board Flux
 const BoardActions = require('../../actions/board_actions');
@@ -14,7 +16,7 @@ const BoardDetail = React.createClass({
     return {
       board: {
         id: undefined,
-        title: "title",
+        name: "",
         description: ""
       }
     };
@@ -22,6 +24,13 @@ const BoardDetail = React.createClass({
 
   componentDidMount () {
     this.onChangeListener = BoardStore.addListener(this.onBoardChanged);
+
+    this.setState({
+      board: BoardStore.find(this.props.params.board_id)
+    });
+
+    // this doesn't work because react
+    // ReactDOM.findDOMNode(this.refs.nameInput).focus();
   },
 
   componentWillUnmount () {
@@ -37,26 +46,14 @@ const BoardDetail = React.createClass({
     }
   },
 
-  // setDescription (e) {
-  //   let newBoard = this.state.board;
-  //   newBoard.description = e.currentTarget.value;
-  //
-  //   this.setState({board: newBoard});
-  // },
+  handleTitleExit (e) {
+    e.preventDefault();
 
-  // handleDescriptionExit (e) {
-  //   let newBoard = this.state.board;
-  //   newBoard.description = e.currentTarget.value;
-  //
-  //   BoardActions.editBoard(newBoard);
-  // },
-  //
-  // handleTitleExit (e) {
-  //   let newBoard = this.props.board;
-  //   newBoard.title = e.currentTarget.value;
-  //
-  //   this.props.onUpdateBoard(newBoard);
-  // },
+    let newBoard = this.state.board;
+    newBoard.title = e.currentTarget.value;
+
+    BoardActions.editBoard(newBoard);
+  },
 
   // handleTitleKeyPress (e) {
   //   if (e.keyCode === 13) {
@@ -123,14 +120,27 @@ const BoardDetail = React.createClass({
 
     let className = "board-detail-container";
 
+    // in the list
+    // Grab every Photobox
+    // Grab every textbox
+    // shove them into an array
+    // grab the names of each object in the array
+    // pretend it's polymorphic because js has
+    // no goddamn types
+    // Do a map here
+    // for each item show that board detail list item
+    // and then
     return (
       <Modal isOpen={true}
              style={this.getModalStyles()}>
         <div className={className}>
             <div className="board-detail-header">
               <textarea className="board-detail-title"
-                        value={this.state.board.title}
-                        onChange={this.update("title")}/>
+                        ref="nameInput"
+                        value={this.state.board.name}
+                        maxLength={30}
+                        onBlur={this.handleTitleExit}
+                        onChange={this.update("name")}/>
 
               <div className="board-detail-separator"></div>
             </div>
@@ -141,9 +151,9 @@ const BoardDetail = React.createClass({
                 <li className="board-detail-list-item">Canvas</li>
                 <li className="board-detail-list-item">SubBoard</li>
                 <li className="board-detail-list-item">Checklist</li>
-                <li className="board-detail-list-item">something else</li>
-                <li className="board-detail-list-item"></li>
-                <li className="board-detail-list-item"></li>
+                <li className="board-detail-list-item">Text Box</li>
+                <li className="board-detail-list-item">Photo Box</li>
+                <li className="board-detail-list-item">Another Thing</li>
               </ul>
             </div>
         </div>
