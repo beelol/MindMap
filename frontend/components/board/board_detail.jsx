@@ -5,6 +5,7 @@ const React = require('react');
 const Modal = require('react-modal');
 const ReactDOM = require('react-dom');
 
+const hashHistory = require('react-router').hashHistory;
 
 // Board Flux
 const BoardActions = require('../../actions/board_actions');
@@ -126,6 +127,11 @@ const BoardDetail = React.createClass({
     console.log("lol");
   },
 
+  exit (e) {
+    e.preventDefault();
+    hashHistory.push("/listings");
+  },
+
   render () {
     // let board = this.state.board;
     //
@@ -143,6 +149,8 @@ const BoardDetail = React.createClass({
       <Modal isOpen={true}
              style={this.getModalStyles()}>
         <div className={className}>
+          <div className="x-button"
+               onClick={this.exit}>X</div>
             <div className="board-detail-header">
               <textarea className="board-detail-title"
                         ref="nameInput"
@@ -166,6 +174,7 @@ const BoardDetail = React.createClass({
                     );
                   })
                 }
+                <li className="board-detail-list-item plus">+</li>
               </ul>
             </div>
         </div>
@@ -174,7 +183,6 @@ const BoardDetail = React.createClass({
   }
 });
 
-// <li className="board-detail-list-item">Canvas</li>
 // <li className="board-detail-list-item">SubBoard</li>
 // <li className="board-detail-list-item">Checklist</li>
 // <li className="board-detail-list-item">Text Box</li>

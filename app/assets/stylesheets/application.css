@@ -803,6 +803,7 @@ textarea {
 
   transition: color .5s;
   transition: background-color .3s;
+  transition: font-size .3s;
 }
 
 .board-detail-list-item:hover {
@@ -810,6 +811,26 @@ textarea {
   background-color: rgb(0, 121, 191);
   color: white;
 
+  font-size: 150%;
+
   transition: color .5s;
   transition: background-color .3s;
+  transition: font-size .3s;
+}
+
+.x-button {
+  font-size: larger;
+  align-self: flex-end;
+}
+
+.x-button:hover {
+  cursor: pointer;
+}
+
+.plus {
+  font-size: 100px;
+}
+
+.plus:hover {
+  font-size: 150px;
 }
