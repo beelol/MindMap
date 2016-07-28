@@ -2,51 +2,51 @@
 
 const ApiUtil = {
   // fetchAllPhotoBoxes (filters, success) {
-  //   $.get('api/photoBoxes', filters, success);
+  //   $.get('api/photoboxes', filters, success);
   // },
-  // fetchBoard () {
+  // fetchPhotoBox () {
   //   $.get('api/photoBox/:id', filters, success);
   // },
-  // createBoard (data, success) {
-  //   $.post('api/photoBoxes', { photoBox: data }, success);
+  // createPhotoBox (data, success) {
+  //   $.post('api/photoboxes', { photoBox: data }, success);
   // },
 
   fetchAllPhotoBoxes (cb) {
     $.ajax({
-      url: "api/photoBoxes",
+      url: "api/photoboxes",
       success: cb
     });
   },
 
-  fetchBoard (id, cb) {
+  fetchPhotoBox (id, cb) {
     $.ajax({
-      url: `api/photoBoxes/${id}`,
+      url: `api/photoboxes/${id}`,
       success: cb
     });
   },
 
-  deleteBoard (id, cb) {
+  deletePhotoBox (id, cb) {
     $.ajax({
-      url: `api/photoBoxes/${id}`,
+      url: `api/photoboxes/${id}`,
       method: "DELETE",
       success: cb(id)
     });
   },
 
-  createBoard (newBoard, cb, redirectCb) {
+  createPhotoBox (newPhotoBox, cb, redirectCb) {
     $.ajax({
-      url: "api/photoBoxes",
+      url: "api/photoboxes",
       method: "POST",
-      data: {photoBox: newBoard},
+      data: {photoBox: newPhotoBox},
       success: function (photoBox) {
         cb(photoBox, redirectCb);
       }
     });
   },
 
-  updateBoard (photoBox, cb, redirectCb) {
+  updatePhotoBox (photoBox, cb, redirectCb) {
     $.ajax({
-      url: `api/photoBoxes/${photoBox.id}`,
+      url: `api/photoboxes/${photoBox.id}`,
       method: "PATCH",
       data: {photoBox: photoBox},
       success: function (photoBox) {
@@ -60,12 +60,12 @@ module.exports = ApiUtil;
 
 /* Stuff for testing */
 
-// let newBoard = {id: 2, title: "nice", photoBox_id: 2, author_id: 2}
+// let newPhotoBox = {id: 2, title: "nice", photoBox_id: 2, author_id: 2}
 //
 // $.ajax({
-//   url: "api/photoBoxes",
+//   url: "api/photoboxes",
 //   method: "POST",
-//   data: {photoBox: newBoard},
+//   data: {photoBox: newPhotoBox},
 //   success: function (photoBox) {
 //     console.log(photoBox);
 //   }

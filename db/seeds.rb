@@ -53,6 +53,7 @@ text_boxes = TextBox.create([
   {
     name: "My favorite text box",
     text: "Some good text",
+    description: "text box seed",
     ord: 1,
     author_id: 1,
     board_id: 1
@@ -60,6 +61,7 @@ text_boxes = TextBox.create([
   {
     name: "My second favorite text box",
     text: "Some good text",
+    description: "text box seed",
     ord: 1,
     author_id: 1,
     board_id: 2
@@ -67,6 +69,7 @@ text_boxes = TextBox.create([
   {
     name: "omg text box",
     text: "Some good text",
+    description: "text box seed",
     ord: 1,
     author_id: 1,
     board_id: 3

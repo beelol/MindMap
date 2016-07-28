@@ -16,13 +16,13 @@ PhotoBoxStore.find = function (id) {
   return Object.assign({}, _photoBoxes[id]);
 };
 
-PhotoBoxStore.findByTeam = function (team_id) {
+PhotoBoxStore.findByBoard = function (board_id) {
   let photoBoxes = [];
 
   Object.keys(_photoBoxes).forEach((key) => {
     let newKey = parseInt(key);
 
-    if (_photoBoxes[newKey].team_id === team_id) {
+    if (_photoBoxes[newKey].board_id === board_id) {
       photoBoxes.push(_photoBoxes[key]);
     }
   });

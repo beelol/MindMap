@@ -1,6 +1,6 @@
 class Api::PhotoboxesController < ApplicationController
   def index
-    @photoboxes = current_user.photoboxes
+    @photoboxes = current_user.photo_boxes
   end
 
   def create

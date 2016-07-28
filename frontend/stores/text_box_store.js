@@ -16,13 +16,13 @@ TextBoxStore.find = function (id) {
   return Object.assign({}, _textBoxes[id]);
 };
 
-TextBoxStore.findByTeam = function (team_id) {
+TextBoxStore.findByBoard = function (board_id) {
   let textBoxes = [];
 
   Object.keys(_textBoxes).forEach((key) => {
     let newKey = parseInt(key);
 
-    if (_textBoxes[newKey].team_id === team_id) {
+    if (_textBoxes[newKey].board_id === board_id) {
       textBoxes.push(_textBoxes[key]);
     }
   });

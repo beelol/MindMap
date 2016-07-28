@@ -2,51 +2,51 @@
 
 const ApiUtil = {
   // fetchAllTextBoxes (filters, success) {
-  //   $.get('api/textBoxes', filters, success);
+  //   $.get('api/textboxes', filters, success);
   // },
-  // fetchBoard () {
+  // fetchTextBox () {
   //   $.get('api/textBox/:id', filters, success);
   // },
-  // createBoard (data, success) {
-  //   $.post('api/textBoxes', { textBox: data }, success);
+  // createTextBox (data, success) {
+  //   $.post('api/textboxes', { textBox: data }, success);
   // },
 
   fetchAllTextBoxes (cb) {
     $.ajax({
-      url: "api/textBoxes",
+      url: "api/textboxes",
       success: cb
     });
   },
 
-  fetchBoard (id, cb) {
+  fetchTextBox (id, cb) {
     $.ajax({
-      url: `api/textBoxes/${id}`,
+      url: `api/textboxes/${id}`,
       success: cb
     });
   },
 
-  deleteBoard (id, cb) {
+  deleteTextBox (id, cb) {
     $.ajax({
-      url: `api/textBoxes/${id}`,
+      url: `api/textboxes/${id}`,
       method: "DELETE",
       success: cb(id)
     });
   },
 
-  createBoard (newBoard, cb, redirectCb) {
+  createTextBox (newTextBox, cb, redirectCb) {
     $.ajax({
-      url: "api/textBoxes",
+      url: "api/textboxes",
       method: "POST",
-      data: {textBox: newBoard},
+      data: {textBox: newTextBox},
       success: function (textBox) {
         cb(textBox, redirectCb);
       }
     });
   },
 
-  updateBoard (textBox, cb, redirectCb) {
+  updateTextBox (textBox, cb, redirectCb) {
     $.ajax({
-      url: `api/textBoxes/${textBox.id}`,
+      url: `api/textboxes/${textBox.id}`,
       method: "PATCH",
       data: {textBox: textBox},
       success: function (textBox) {
@@ -60,12 +60,12 @@ module.exports = ApiUtil;
 
 /* Stuff for testing */
 
-// let newBoard = {id: 2, title: "nice", textBox_id: 2, author_id: 2}
+// let newTextBox = {id: 2, title: "nice", textBox_id: 2, author_id: 2}
 //
 // $.ajax({
-//   url: "api/textBoxes",
+//   url: "api/textboxes",
 //   method: "POST",
-//   data: {textBox: newBoard},
+//   data: {textBox: newTextBox},
 //   success: function (textBox) {
 //     console.log(textBox);
 //   }

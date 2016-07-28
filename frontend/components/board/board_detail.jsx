@@ -10,6 +10,13 @@ const ReactDOM = require('react-dom');
 const BoardActions = require('../../actions/board_actions');
 const BoardStore = require('../../stores/board_store');
 
+// Board items
+const TextBoxActions = require('../../actions/text_box_actions');
+const PhotoBoxActions = require('../../actions/photo_box_actions');
+
+const TextBoxStore = require('../../stores/text_box_store');
+const PhotoBoxStore = require('../../stores/photo_box_store');
+
 const BoardDetail = React.createClass({
 
   getInitialState() {
@@ -18,23 +25,31 @@ const BoardDetail = React.createClass({
         id: undefined,
         name: "",
         description: ""
-      }
+      },
+      textBoxes: [],
+      photoBoxes: []
     };
   },
 
   componentDidMount () {
-    this.onChangeListener = BoardStore.addListener(this.onBoardChanged);
+    this.onBoardChangeListener = BoardStore.addListener(this.onBoardChanged);
+
+    this.onTextBoxChangeListener = TextBoxStore.addListener(this.onTextBoxChanged);
+
+    this.onPhotoBoxChangeListener = PhotoBoxStore.addListener(this.onPhotoBoxChanged);
 
     this.setState({
       board: BoardStore.find(this.props.params.board_id)
     });
 
-    // this doesn't work because react
-    // ReactDOM.findDOMNode(this.refs.nameInput).focus();
+    PhotoBoxActions.fetchAllPhotoBoxes();
+    TextBoxActions.fetchAllTextBoxes();
   },
 
   componentWillUnmount () {
-    this.onChangeListener.remove();
+    this.onBoardChangeListener.remove();
+    this.onTextBoxChangeListener.remove();
+    this.onPhotoBoxChangeListener.remove();
   },
 
   update(property) {
@@ -70,6 +85,18 @@ const BoardDetail = React.createClass({
   onBoardChanged () {
     this.setState({
       board: BoardStore.find(this.props.params.board_id)
+    });
+  },
+
+  onTextBoxChanged () {
+    console.log(TextBoxStore.findByBoard(1));
+    this.setState({
+      textBoxes: TextBoxStore.findByBoard(this.props.params.board_id)
+    });
+  },
+  onPhotoBoxChanged () {
+    this.setState({
+      photoBoxes: PhotoBoxStore.findByBoard(this.props.params.board_id)
     });
   },
 
@@ -123,13 +150,8 @@ const BoardDetail = React.createClass({
     // in the list
     // Grab every Photobox
     // Grab every textbox
-    // shove them into an array
-    // grab the names of each object in the array
-    // pretend it's polymorphic because js has
-    // no goddamn types
-    // Do a map here
-    // for each item show that board detail list item
-    // and then
+    let boardItems = this.state.textBoxes.concat(this.state.photoBoxes);
+    // console.log(boardItems);
     return (
       <Modal isOpen={true}
              style={this.getModalStyles()}>
