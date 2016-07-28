@@ -139,7 +139,6 @@ const BoardDetail = React.createClass({
     // Grab every Photobox
     // Grab every textbox
     let boardItems = this.state.textBoxes.concat(this.state.photoBoxes);
-    console.log(boardItems);
     return (
       <Modal isOpen={true}
              style={this.getModalStyles()}>
@@ -155,15 +154,15 @@ const BoardDetail = React.createClass({
               <div className="board-detail-separator"></div>
             </div>
 
-
             <div className="board-detail-list-container">
               <ul className="board-detail-list">
-                <li className="board-detail-list-item">Canvas</li>
-                <li className="board-detail-list-item">SubBoard</li>
-                <li className="board-detail-list-item">Checklist</li>
-                <li className="board-detail-list-item">Text Box</li>
-                <li className="board-detail-list-item">Photo Box</li>
-                <li className="board-detail-list-item">Another Thing</li>
+                {
+                  boardItems.map(item => {
+                    return (
+                      <li className="board-detail-list-item">{item.name}</li>
+                    );
+                  })
+                }
               </ul>
             </div>
         </div>
@@ -171,5 +170,12 @@ const BoardDetail = React.createClass({
     );
   }
 });
+//
+// <li className="board-detail-list-item">Canvas</li>
+// <li className="board-detail-list-item">SubBoard</li>
+// <li className="board-detail-list-item">Checklist</li>
+// <li className="board-detail-list-item">Text Box</li>
+// <li className="board-detail-list-item">Photo Box</li>
+// <li className="board-detail-list-item">Another Thing</li>
 
 module.exports = BoardDetail;
