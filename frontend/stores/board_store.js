@@ -18,9 +18,9 @@ BoardStore.findByListing = function (listing_id) {
   let boards = [];
 
   Object.keys(_boards).forEach((key) => {
-    let newKey = parseInt(key);
+    // let newKey = parseInt(key);
 
-    if (_boards[newKey].listing_id === listing_id) {
+    if (_boards[key].listing_id === listing_id) {
       boards.push(_boards[key]);
     }
   });

@@ -22,7 +22,7 @@ TextBoxStore.findByBoard = function (board_id) {
   Object.keys(_textBoxes).forEach((key) => {
     let newKey = parseInt(key);
 
-    if (_textBoxes[newKey].board_id === board_id) {
+    if (parseInt(_textBoxes[newKey].board_id) === parseInt(board_id)) {
       textBoxes.push(_textBoxes[key]);
     }
   });

@@ -70,33 +70,21 @@ const BoardDetail = React.createClass({
     BoardActions.editBoard(newBoard);
   },
 
-  // handleTitleKeyPress (e) {
-  //   if (e.keyCode === 13) {
-  //     this.handleTitleExit(e);
-  //   }
-  // },
-
-  // onReceivedBoard () {
-  //   this.setState({
-  //     board: BoardStore.find(this.id)
-  //   });
-  // },
-  //
   onBoardChanged () {
     this.setState({
-      board: BoardStore.find(this.props.params.board_id)
+      board: BoardStore.find(parseInt(this.props.params.board_id))
     });
   },
 
   onTextBoxChanged () {
-    console.log(TextBoxStore.findByBoard(1));
     this.setState({
-      textBoxes: TextBoxStore.findByBoard(this.props.params.board_id)
+      textBoxes: TextBoxStore.findByBoard(parseInt(this.props.params.board_id))
     });
   },
+
   onPhotoBoxChanged () {
     this.setState({
-      photoBoxes: PhotoBoxStore.findByBoard(this.props.params.board_id)
+      photoBoxes: PhotoBoxStore.findByBoard(parseInt(this.props.params.board_id))
     });
   },
 
@@ -151,7 +139,7 @@ const BoardDetail = React.createClass({
     // Grab every Photobox
     // Grab every textbox
     let boardItems = this.state.textBoxes.concat(this.state.photoBoxes);
-    // console.log(boardItems);
+    console.log(boardItems);
     return (
       <Modal isOpen={true}
              style={this.getModalStyles()}>
