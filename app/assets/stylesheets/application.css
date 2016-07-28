@@ -772,6 +772,8 @@ textarea {
 
 .board-detail-list-container {
   margin-top: 40px;
+  position: relative;
+  width: 100%;
 }
 
 .board-detail-list {
@@ -780,6 +782,8 @@ textarea {
   align-items: center;
   flex-wrap: wrap;
   overflow: auto;
+  /* Used to push first elements back by separator margin */
+  margin-left: -20px;
   min-height: 300px;
   max-height: 400px;
 }

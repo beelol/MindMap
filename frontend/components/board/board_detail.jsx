@@ -159,7 +159,10 @@ const BoardDetail = React.createClass({
                 {
                   boardItems.map(item => {
                     return (
-                      <li className="board-detail-list-item">{item.name}</li>
+                      <li className="board-detail-list-item"
+                          key={item.id}>
+                        {item.name}
+                      </li>
                     );
                   })
                 }
@@ -170,7 +173,7 @@ const BoardDetail = React.createClass({
     );
   }
 });
-//
+
 // <li className="board-detail-list-item">Canvas</li>
 // <li className="board-detail-list-item">SubBoard</li>
 // <li className="board-detail-list-item">Checklist</li>

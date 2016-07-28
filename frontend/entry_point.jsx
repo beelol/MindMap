@@ -33,9 +33,9 @@ const appRouter = (
 
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
-      <Route path="/listings" component={ ListingIndex } >
-        <Route path=":listing_id/boards/new" component={ BoardForm } />
-        <Route path=":listing_id/boards/:board_id" component={ BoardDetail } />
+      <Route path="/listings" component={ ListingIndex } onEnter={ _ensureLoggedIn } >
+        <Route path=":listing_id/boards/new" component={ BoardForm } onEnter={ _ensureLoggedIn } />
+        <Route path=":listing_id/boards/:board_id" component={ BoardDetail } onEnter={ _ensureLoggedIn } />
       </Route>
     </Route>
   </Router>

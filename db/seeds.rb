@@ -49,9 +49,44 @@ boards = Board.create([
   ])
 
 
+photo_boxes = PhotoBox.create([
+  {
+    name: "It's a photobox!",
+    photo_url: "http://gugle.com/pictureeeeeee",
+    description: "photo box seed",
+    ord: 1,
+    author_id: 1,
+    board_id: 1
+  },
+])
+
 text_boxes = TextBox.create([
   {
     name: "My favorite text box",
+    text: "Some good text",
+    description: "text box seed",
+    ord: 1,
+    author_id: 1,
+    board_id: 1
+  },
+  {
+    name: "Anoha one",
+    text: "Some good text",
+    description: "text box seed",
+    ord: 1,
+    author_id: 1,
+    board_id: 1
+  },
+  {
+    name: "unutha won",
+    text: "Some good text",
+    description: "text box seed",
+    ord: 1,
+    author_id: 1,
+    board_id: 1
+  },
+  {
+    name: "enathu wun",
     text: "Some good text",
     description: "text box seed",
     ord: 1,
@@ -74,5 +109,4 @@ text_boxes = TextBox.create([
     author_id: 1,
     board_id: 3
   }
-
 ])
